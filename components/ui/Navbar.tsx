@@ -4,16 +4,7 @@ import { useState, useEffect } from 'react';
 import { Camera } from 'lucide-react';
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false); // 1. Added mobile menu state
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [isOpen, setIsOpen] = useState(false);
 
   // Close mobile menu if window is resized to desktop size
   useEffect(() => {
@@ -26,7 +17,7 @@ export default function Navbar() {
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
-    setIsOpen(false); // Close mobile menu when a link is clicked
+    setIsOpen(false);
     const target = document.querySelector(targetId);
     if (target) {
       if ((window as any).lenis) {
@@ -39,8 +30,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top - 0 left - 0 w - full z - [9999] transition - all duration - 300 ${scrolled || isOpen ? 'bg-black/90 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'
-        } `}>
+      {/* Kept your original solid glassmorphic background classes here */}
+      <nav className="fixed top-0 left-0 w-full z-[9999] bg-black/80 backdrop-blur-xl border-b border-white/5 transition-colors duration-300">
         <div className="container mx-auto px-6 max-w-7xl h-16 flex items-center justify-between relative">
 
           {/* Logo */}
@@ -68,23 +59,22 @@ export default function Navbar() {
               Let&apos;s Talk
             </button>
 
-            {/* 2. Added onClick and custom dynamic tailwind classes to turn bars into an X */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden flex flex-col justify-center items-center w-8 h-8 focus:outline-none z-50 relative"
               aria-label="Toggle Menu"
             >
-              <span className={`block w - 6 h - [2px] bg - white rounded - full transition - all duration - 300 ${isOpen ? 'rotate-45 translate-y-[8px]' : ''} `}></span>
-              <span className={`block w - 6 h - [2px] bg - white rounded - full my - 1.5 transition - all duration - 300 ${isOpen ? 'opacity-0' : ''} `}></span>
-              <span className={`block w - 6 h - [2px] bg - white rounded - full transition - all duration - 300 ${isOpen ? '-rotate-45 -translate-y-[8px]' : ''} `}></span>
+              <span className={`block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[8px]' : ''}`}></span>
+              <span className={`block w-6 h-[2px] bg-white rounded-full my-1.5 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}></span>
             </button>
           </div>
         </div>
       </nav>
 
-      {/* 3. The actual Mobile Menu Overlay Container */}
-      <div className={`fixed inset - 0 bg - black z - [9998] md:hidden transition - all duration - 500 flex flex - col justify - center items - center gap - 8 text - 2xl font - sans text - gray - 300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        } `}>
+      {/* Mobile Menu Overlay Container */}
+      <div className={`fixed inset-0 bg-black z-[9998] md:hidden transition-all duration-500 flex flex-col justify-center items-center gap-8 text-2xl font-sans text-gray-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}>
         <a href="#about" onClick={(e) => handleSmoothScroll(e, '#about')} className="hover:text-white transition-colors py-2 tracking-wide">About</a>
         <a href="#process" onClick={(e) => handleSmoothScroll(e, '#process')} className="hover:text-white transition-colors py-2 tracking-wide">Process</a>
         <a href="#portfolio" onClick={(e) => handleSmoothScroll(e, '#portfolio')} className="hover:text-white transition-colors py-2 tracking-wide">Portfolio</a>
