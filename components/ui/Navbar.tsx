@@ -88,10 +88,6 @@ export default function Navbar() {
           Contact
         </button>
         <button
-          onClick={() => {
-            setIsOpen(false);
-            window.dispatchEvent(new CustomEvent('open-contact-modal'));
-          }}
           className="mt-4 px-8 py-3 bg-[#b5ff3a] text-black font-semibold rounded-[4px] text-base"
         >
           <Link href="https://wa.me/qr/47UGEW47Y3PZJ1" className="flex items-center gap-2">

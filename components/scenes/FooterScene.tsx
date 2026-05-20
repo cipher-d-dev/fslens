@@ -27,11 +27,11 @@ export default function FooterScene() {
                  <a href="https://www.instagram.com/fslenss?igsh=MXo4OG9iaG54Znl3&utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2">
                    <Instagram className="w-4 h-4" /> Instagram
                  </a>
+                </li>
                <li>
                  <a href="https://wa.me/qr/47UGEW47Y3PZJ1" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2">
                    <Phone className="w-4 h-4" /> Whatsapp
                  </a>
-               </li>
                </li>
                <li>
                  <a href="https://drive.google.com/drive/folders/1nL-sKkpg2Et4K4YERxxov8CeP2t_Eid-" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2">
