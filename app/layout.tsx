@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, Caveat } from 'next/font/google';
 import './globals.css';
 import LenisProvider from '@/components/LenisProvider';
 import CustomCursor from '@/components/ui/CustomCursor';
+import Head from 'next/head';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,13 +24,16 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: 'Cinematic Creative Portfolio',
-  description: 'A premium, scene-based portfolio for a multidisciplinary creative professional.',
+  title: 'Fisayo - FSlens',
+  description: 'Taking videography to the next level.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${caveat.variable}`}>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <body className="bg-black text-white antialiased font-sans" suppressHydrationWarning>
         <LenisProvider>
           <CustomCursor />
