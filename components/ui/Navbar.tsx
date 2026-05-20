@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Camera } from 'lucide-react';
+import { Camera, Phone } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -94,7 +94,9 @@ export default function Navbar() {
           }}
           className="mt-4 px-8 py-3 bg-[#b5ff3a] text-black font-semibold rounded-[4px] text-base"
         >
-          Let&apos;s Talk
+          <Link href="https://wa.me/qr/47UGEW47Y3PZJ1" className="flex items-center gap-2">
+            Let&apos;s Talk <Phone className="w-5 h-5" />
+          </Link>
         </button>
       </div>
     </>
