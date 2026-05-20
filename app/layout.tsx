@@ -26,6 +26,9 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: 'Fisayo - FSlens',
   description: 'Taking videography to the next level.',
+  icons: {
+    icon: '/favicon.jpeg',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
